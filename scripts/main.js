@@ -150,6 +150,27 @@ function animateCounters() {
     requestAnimationFrame(startCounterAnimation);
 }
 
-animateCounters()
+animateCounters();
+
+
+ const swiper = new Swiper('.schemeSwiper', {
+                slidesPerView: 'auto',
+                spaceBetween: 15,
+                
+                scrollbar: {
+                    el: '.custom-scrollbar',
+                    draggable: true,
+                    snapOnRelease: true,
+                    hide: false
+                },
+                mousewheel: {
+                    enabled: true,
+                    forceToAxis: true
+                },
+                resistance: true,
+                resistanceRatio: 0.6
+            });
+            
+           
 });
 
