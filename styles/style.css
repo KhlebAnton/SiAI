@@ -462,14 +462,14 @@ section {
     top: -10px;
     bottom: -10px;
 }
-.swiper-slide {
+.control-scheme  .swiper-slide {
     filter: blur(3px);
     transition: filter .3s ease;
 }
-.swiper-slide-active {
+.control-scheme  .swiper-slide-active {
      filter: blur(0px);
 }
-.swiper-slide-active + .swiper-slide {
+.control-scheme  .swiper-slide-active + .swiper-slide {
     filter: blur(0px);
 }
 .control-scheme {
