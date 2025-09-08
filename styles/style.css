@@ -393,7 +393,7 @@ textarea:focus {
     min-height: 100vh;
     display: flex;
     color: var(--white);
-    background: url('../images/404-bg.png') 50% 0% / cover no-repeat;
+    background: url('../images/404-bg.png') 0% 0% / cover no-repeat;
 }
 
 .no-page-container {
