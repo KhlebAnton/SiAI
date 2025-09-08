@@ -41,7 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
             modal.classList.remove('is-open')
             if (modal.getAttribute('data-modal') === id) {
                 modal.classList.add('is-open');
-                document.body.style.overflow = 'hidden';
+                setTimeout(() => {
+                     document.body.style.overflow = 'hidden';
+                }, 100);
+               
             }
         });
     }
@@ -95,10 +98,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     const totalDuration = speed * 1000;
                     const startTime = performance.now();
 
-                    // Определяем точку перехода к медленной анимации (последние 5 чисел)
+
                     const fastEndValue = Math.max(0, originalValue - 5);
-                    const fastDuration = totalDuration * 0.7; // 70% времени на быструю часть
-                    const slowDuration = totalDuration * 0.3; // 30% времени на медленную часть
+                    const fastDuration = totalDuration * 0.7;
+                    const slowDuration = totalDuration * 0.3;
 
                     counter.setAttribute('data-animated', 'true');
 
@@ -109,11 +112,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             let currentValue;
 
                             if (elapsedTime < fastDuration) {
-                                // Быстрая часть анимации
                                 const progress = elapsedTime / fastDuration;
                                 currentValue = Math.floor(progress * fastEndValue);
                             } else {
-                                // Медленная часть - последние 5 чисел
                                 const slowElapsed = elapsedTime - fastDuration;
                                 const slowProgress = Math.min(slowElapsed / slowDuration, 1);
                                 const slowValue = Math.floor(slowProgress * 5);
@@ -178,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
         slidesPerView: 'auto',
         spaceBetween: 20,
 
-        
+
         mousewheel: {
             enabled: true,
             forceToAxis: true
@@ -188,5 +189,143 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+
+
+    const phoneInputs = document.querySelectorAll('.phone-input');
+    if (phoneInputs.length) {
+        phoneInputs.forEach(input => {
+            var iti = window.intlTelInput(input, {
+                nationalMode: true,
+                initialCountry: 'auto',
+                geoIpLookup: function (callback) {
+                    jQuery.get('https://ipinfo.io', function () { }, 'jsonp').always(function (resp) {
+                        var countryCode = resp && resp.country ? resp.country : 'us';
+                        callback(countryCode);
+                    });
+                },
+                utilsScript: './scripts/utils.js',
+                preferredCountries: ['ru']
+            });
+            var handleChange = function () {
+                var text = iti.isValidNumber() ? iti.getNumber() : '';
+                iti.setNumber(text);
+                input.value = text;
+            };
+            input.addEventListener('mouseleave', handleChange);
+            input.addEventListener('change', handleChange);
+        });
+    }
+    function validateName(name) {
+        name = name.trim();
+        return name.length >= 2 && /^[a-zA-Zа-яА-ЯёЁ\- ]+$/.test(name);
+    }
+    function validateEmail(email) {
+        if (!email) return false; // Проверка на пустое значение
+
+        // Удаляем пробелы в начале и конце
+        email = email.trim();
+
+        // Регулярное выражение для проверки email
+        const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        // Дополнительные проверки
+        if (email.length > 254) return false; // Максимальная длина email
+        if (email.indexOf('..') !== -1) return false; // Две точки подряд
+        if (email.indexOf('@') === -1) return false; // Должен быть символ @
+
+        // Разделяем на локальную часть и домен
+        const parts = email.split('@');
+        if (parts.length !== 2) return false;
+
+        const local = parts[0];
+        const domain = parts[1];
+
+        // Проверка длины локальной части и домена
+        if (local.length > 64) return false;
+        if (domain.length > 253) return false;
+
+        return re.test(email.toLowerCase());
+    }
+    function showError(input, message) {
+        const label = input.closest('.input_label');
+        label.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        const errorMsg = label.querySelector('.error_msg');
+        if (!errorMsg) {
+            const errSpan = document.createElement('span');
+            errSpan.classList.add('error_msg');
+                 errSpan.textContent = message;
+        
+           
+            label.appendChild(errSpan)
+        } else {
+            errorMsg.textContent = message;
+        }
+        label.classList.add('error');
+
+
+    }
+    document.querySelectorAll('form').forEach(form => {
+        form.noValidate = true; // Отключаем стандартную валидацию
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            let isFormValid = true;
+
+            // Проверка всех обязательных полей
+            const requiredInputs = this.querySelectorAll('input[required], textarea[required], select[required]');
+
+            requiredInputs.forEach(input => {
+                // Проверка на пустое значение
+                if (!input.value.trim()) {
+                    showError(input, input.getAttribute('data-error') || '*Это поле обязательно для заполнения');
+                    isFormValid = false;
+                } else {
+                    clearError(input);
+                }
+            });
+
+            // Дополнительные проверки
+            const nameInput = this.querySelector('input[name="name"]');
+            if (nameInput && !validateName(nameInput.value)) {
+                showError(nameInput, '*ошибка ввода имени');
+                isFormValid = false;
+            }
+            const emailInput = form.querySelector('input[type="email"]');
+            if (emailInput && !validateEmail(emailInput.value)) {
+                showError(emailInput, '*Некорректный email-адрес');
+                isFormValid = false;
+            }
+            // Если форма валидна, отправляем
+            if (isFormValid) {
+                if (form.querySelector('.success_form__content')) {
+                    form.classList.add('success_form');
+                }
+
+                // Здесь можно добавить отправку формы, если нужно
+                // form.submit();
+            }
+        });
+
+        // Валидация при вводе и изменении
+        const inputs = form.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            if (input.tagName === 'INPUT') {
+                input.addEventListener('input', function () {
+                    if (this.value.trim()) {
+                        clearError(this);
+                    }
+                });
+            }
+        });
+    });
+
+
+
+    function clearError(input) {
+        const errorMsg = input.closest('.input_label')?.querySelector('.error_msg');
+        if (errorMsg) {
+            input.closest('.input_label').classList.remove('error');
+        }
+    }
 });
 

@@ -5,11 +5,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./styles/intlTelInput.min.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
+    <div class="modal_overlay " data-modal="form">
+        <div class="modal-content">
+
+            <div class="modal-close"></div>
+
+            <h4 class="form-title">
+                Обратная связь
+            </h4>
+            <form class="form">
+                <label class="input_label ">
+                    <input type="text" name="name" placeholder="Имя" required>
+
+                </label>
+                <label class="input_label ">
+                    <input type="email" name="email" placeholder="Электронная почта" required>
+
+                </label>
+
+                <label class="input_label">
+                    <input type="text" class="phone-input" name="phone" required="" autocomplete="off">
+
+                </label>
+                <label class="input_label">
+                    <textarea name="text-msg" placeholder="Ваше сообщение"></textarea>
+                </label>
+                <div class="form_bootom">
+                    <button type="submit" class="btn btn_second">Отправить</button>
+                    <p>
+                        Нажимая «Отправить», вы соглашаетесь с правилами <a href="#">Условий соглашения</a> и <a
+                            href="#">Политикой конфиденциальности</a>
+                    </p>
+                </div>
+
+                <div class="success_form__content">
+                    <h4>
+                        Авторизация прошла успешно!
+                    </h4>
+                    <p class="text-medium">Свяжемся с вами в ближайшее время</p>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
     <div class="modal_overlay" data-modal="menu">
         <div class="modal-menu">
             <div class="modal-header">
@@ -17,19 +63,19 @@
                 <div class="modal-close"></div>
             </div>
             <nav class="menu-nav">
-                <a href="#" class="menu-nav-item">
+                <a href="#products" class="menu-nav-item">
                     Продукция
                 </a>
-                <a href="#" class="menu-nav-item">
+                <a href="#mine" class="menu-nav-item">
                     Месторождение
                 </a>
-                <a href="#" class="menu-nav-item">
+                <a href="#lab" class="menu-nav-item">
                     Лаборатория
                 </a>
-                <a href="#" class="menu-nav-item">
+                <a href="#about" class="menu-nav-item">
                     О нас
                 </a>
-                <a href="#" class="menu-nav-item">
+                <a href="#contact" class="menu-nav-item">
                     Контакты
                 </a>
             </nav>
@@ -38,7 +84,7 @@
                     <a href="tel:+78984321233" class="link_contact__tel">+7 (898) 432-12-33</a>
                     <a href="mailto:sale@sialgroup.ru" class="link_contact__mail">sale@sialgroup.ru</a>
                 </div>
-                <button class="btn btn_second">
+                <button class="btn btn_second" data-modal-btn="form">
                     Оставить заявку
                 </button>
             </div>
@@ -49,19 +95,19 @@
         <div class="header-container container">
             <a href="#" class="logo"></a>
             <nav class="nav">
-                <a href="#" class="nav-item">
+                <a href="#products" class="nav-item">
                     Продукция
                 </a>
-                <a href="#" class="nav-item">
+                <a href="#mine" class="nav-item">
                     Месторождение
                 </a>
-                <a href="#" class="nav-item">
+                <a href="#lab" class="nav-item">
                     Лаборатория
                 </a>
-                <a href="#" class="nav-item">
+                <a href="#about" class="nav-item">
                     О нас
                 </a>
-                <a href="#" class="nav-item">
+                <a href="#contact" class="nav-item">
                     Контакты
                 </a>
             </nav>
@@ -70,7 +116,7 @@
                     <a href="tel:+78984321233" class="link_contact__tel">+7 (898) 432-12-33</a>
                     <a href="mailto:sale@sialgroup.ru" class="link_contact__mail">sale@sialgroup.ru</a>
                 </div>
-                <button class="btn btn_primary">
+                <button class="btn btn_primary" data-modal-btn="form">
                     Оставить заявку
                 </button>
             </div>
@@ -97,7 +143,7 @@
                 </div>
             </div>
         </section>
-        <section class="section-mine">
+        <section id="mine" class="section-mine">
             <div class="container flex-column">
                 <div class="section-title">
                     <h2>
@@ -153,7 +199,7 @@
                 </div>
             </div>
         </section>
-        <section class="section-control black-bg">
+        <section id="lab" class="section-control black-bg">
             <div class="container flex-column">
                 <div class="section-title">
                     <h2>
@@ -232,14 +278,16 @@
                                 </div>
                                 <div class="swiper-slide control-scheme-item">
                                     <div class="control-scheme-item__count">
-                                       4
+                                        4
                                     </div>
                                     <div class="control-scheme-item__text">
                                         <h4 class="accent-color">
-                                           Контроль на этапе отгрузки
+                                            Контроль на этапе отгрузки
                                         </h4>
                                         <p>
-                                           Перед погрузкой сырья на транспорт — дополнительная проверка и подтверждение соответствия партии паспортным значениям. Каждая отгрузка сопровождается протоколом испытаний.
+                                            Перед погрузкой сырья на транспорт — дополнительная проверка и подтверждение
+                                            соответствия партии паспортным значениям. Каждая отгрузка сопровождается
+                                            протоколом испытаний.
                                         </p>
                                     </div>
                                 </div>
@@ -252,44 +300,457 @@
                         </div>
                     </div>
                     <p>
-                        Контроль качества ведётся не только по стандартам ТУ 08.12.22-001-24375992-2024 и ГОСТ 9169-2021, но и с учётом индивидуальных требований заказчиков — мы готовы подобрать сырьё под технологию вашего производства.
+                        Контроль качества ведётся не только по стандартам ТУ 08.12.22-001-24375992-2024 и ГОСТ
+                        9169-2021, но и с учётом индивидуальных требований заказчиков — мы готовы подобрать сырьё под
+                        технологию вашего производства.
                     </p>
                 </div>
         </section>
-        <section>
+        <section id="products" class="section-product">
+            <div class="container flex-column">
+                <div class="section-title">
+                    <h2>
+                        Наши марки сырья
+
+                    </h2>
+                    <p class="section-text">
+                        Под любые задачи огнеупорной и керамической промышленности
+                    </p>
+                </div>
+                <div class="text-wrapper">
+                    <p>
+                        На основании результатов лабораторных испытаний и согласно Техническим условиям <br>
+                        08.12.2-001-24375992-2022, наша компания выпускает три марки комовой огнеупорной глины — каждая
+                        с чётко заданными характеристиками и рекомендуемыми областями применения.
+                    </p>
+                </div>
+                <div class="product-wrapper">
+                    <div class="swiper productSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide product-card">
+                                <img src="./images/product/1.png" alt="Щебень" class="product-card__img">
+                                <div class="product-card__info">
+                                    <h4 class="product-card__title">
+                                        Ш-0
+                                    </h4>
+                                    <div class="product-card__text">
+                                        <p>
+                                            SiO₂ ≤ 54 %
+                                        </p>
+                                        <p>
+                                            Al₂O₃ ≥ 38 %
+                                        </p>
+                                        <p>
+                                            Fe₂O₃ ≤ 1,8 %
+                                        </p>
+                                        <p>
+                                            Потери при прокаливании (ППП) ≥ 15 %
+                                        </p>
+                                        <p>
+                                            Огнеупорность >1730 °C
+                                        </p>
+                                        <p>
+                                            Высококачественный шамот, техническая и кислотоупорная керамика
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide product-card">
+                                <img src="./images/product/2.png" alt="Щебень" class="product-card__img">
+                                <div class="product-card__info">
+                                    <h4 class="product-card__title">
+                                        Ш-1
+                                    </h4>
+                                    <div class="product-card__text">
+                                        <p>SiO₂ ≤ 60 %</p>
+                                        <p>Al₂O₃ ≥ 35 %</p>
+                                        <p>Fe₂O₃ ≤ 2,2 %</p>
+                                        <p>Потери при прокаливании (ППП) ≥ 15 %</p>
+                                        <p>Огнеупорность >1730 °C</p>
+                                        <p>Огнеупорный кирпич, санитарная и фасадная керамика</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide product-card">
+                                <img src="./images/product/2.png" alt="Щебень" class="product-card__img">
+                                <div class="product-card__info">
+                                    <h4 class="product-card__title">
+                                        Ш-2
+                                    </h4>
+                                    <div class="product-card__text">
+                                        <p>
+                                            Al₂O₃ ≥ 30 %
+                                        </p>
+                                        <p>
+                                            Fe₂O₃ ≤ 2,8 %
+                                        </p>
+                                        <p>
+                                            Потери при прокаливании (ППП) ≥ 18 %
+                                        </p>
+                                        <p>
+                                            Огнеупорность >1690 °C
+                                        </p>
+                                        <p>
+                                            Керамическая плитка, облицовка, формовочные смеси
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide product-card">
+                                <img src="./images/product/1.png" alt="Щебень" class="product-card__img">
+                                <div class="product-card__info">
+                                    <h4 class="product-card__title">
+                                        Ш-4
+                                    </h4>
+                                    <div class="product-card__text">
+                                        <p>
+                                            Al₂O₃ ≥ 30 %
+                                        </p>
+                                        <p>
+                                            Fe₂O₃ ≤ 3,8 %
+                                        </p>
+                                        <p>
+                                            Огнеупорность >1690 °C
+                                        </p>
+                                        <p>
+                                            Добавки к огнеупорам, теплоизоляционные и подкладочные материалы
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    Каждая партия сырья сопровождается паспортом качества, выданным на основании испытаний в собственной
+                    лаборатории. Мы гарантируем, что характеристики соответствуют требованиям ТУ и остаются стабильными
+                    от поставки к поставке.
+                </p>
+            </div>
+        </section>
+        <section class="section-control grey-bg">
+            <div class="container flex-column">
+                <div class="section-title">
+                    <h3 class="section-title__text">
+                        Мы гарантируем <span class="grey-color-text">
+                            ритмичную и качественную поставку промышленного ресурса, на которую можно положиться
+                        </span>
+
+                    </h3>
+
+                </div>
+                <div class="warranty-container">
+                    <div class="warranty-scheme">
+                        <div class="swiper schemeSwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide warranty-scheme-item">
+                                    <img src="./images/warranty/1.png" alt="рисунок этапа"
+                                        class="warranty-scheme-item__img">
+                                    <div class="warranty-scheme-item__info">
+                                        <div class="warranty-scheme-item__title">
+                                            <div class="warranty-scheme-item__count">
+                                                1
+                                            </div>
+                                            <span class="text-medium">Подготовка фронта работ</span>
+                                        </div>
+                                        <p>
+                                            Проводим геолого-технологическую разметку карьера: определяем границы
+                                            продуктивного пласта и оптимальные точки разработки.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide warranty-scheme-item">
+                                    <img src="./images/warranty/2.png" alt="рисунок этапа"
+                                        class="warranty-scheme-item__img">
+                                    <div class="warranty-scheme-item__info">
+                                        <div class="warranty-scheme-item__title">
+                                            <div class="warranty-scheme-item__count">
+                                                2
+                                            </div>
+                                            <span class="text-medium">Точная и аккуратная экскавация</span>
+                                        </div>
+                                        <p>
+                                            Проводим геолого-технологическую разметку карьера: определяем границы
+                                            продуктивного пласта и оптимальные точки разработки.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide warranty-scheme-item">
+                                    <img src="./images/warranty/3.png" alt="рисунок этапа"
+                                        class="warranty-scheme-item__img">
+                                    <div class="warranty-scheme-item__info">
+                                        <div class="warranty-scheme-item__title">
+                                            <div class="warranty-scheme-item__count">
+                                                3
+                                            </div>
+                                            <span class="text-medium">Складирование и лабораторный контроль</span>
+                                        </div>
+                                        <p>
+                                            Глина размещается на площадке хранения по качеству и типу. С каждой партии
+                                            берутся образцы для лабораторного анализа.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide warranty-scheme-item">
+                                    <img src="./images/warranty/4.png" alt="рисунок этапа"
+                                        class="warranty-scheme-item__img">
+                                    <div class="warranty-scheme-item__info">
+                                        <div class="warranty-scheme-item__title">
+                                            <div class="warranty-scheme-item__count">
+                                                4
+                                            </div>
+                                            <span class="text-medium">Погрузка и взвешивание</span>
+                                        </div>
+                                        <p>
+                                            Сформированные партии загружаются в самосвалы и проходят взвешивание на
+                                            автовесах перед отправкой: на ЖД-тупик или напрямую к клиенту.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide warranty-scheme-item">
+                                    <img src="./images/warranty/5.png" alt="рисунок этапа"
+                                        class="warranty-scheme-item__img">
+                                    <div class="warranty-scheme-item__info">
+                                        <div class="warranty-scheme-item__title">
+                                            <div class="warranty-scheme-item__count">
+                                                5
+                                            </div>
+                                            <span class="text-medium">Финальная проверка и отгрузка</span>
+                                        </div>
+                                        <p>
+                                            Перед отгрузкой каждая партия проходит заключительный контроль. Вы получаете
+                                            глину с паспортом качества и точно в срок.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Кастомная полоса прокрутки -->
+                            <div class="custom-scrollbar"></div>
+                        </div>
+                    </div>
+
+                </div>
+        </section>
+        <section id="about" class="section-about black-bg">
+            <div class="container flex-column">
+                <div class="section-title">
+                    <h2>
+                        Мы — <span class="accent-color">производственный партнёр, </span>который знает, что нужно
+                        клиенту
+
+                    </h2>
+                </div>
+                <div class="about-items-container">
+                    <div class="about-item">
+                        <img src="./images/about/1.svg" alt="иконка сто" class="about-item__icon">
+                        <div class="about-item__info">
+                            <h4>
+                                100% контроль <br>
+                                от карьера до клиента
+                            </h4>
+                            <p>
+                                Мы сами добываем, анализируем, храним и отгружаем. Без посредников. Без сбоев. Без
+                                потери качества на каждом этапе.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <img src="./images/about/2.svg" alt="иконка грузовик" class="about-item__icon">
+                        <div class="about-item__info">
+                            <h4>
+                                Стабильные поставки <br>
+                                круглый год
+                            </h4>
+                            <p>
+                                Благодаря современной технике и выверенному графику добычи мы работаем вне зависимости
+                                от сезона и погоды.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <img src="./images/about/3.svg" alt="иконка качество" class="about-item__icon">
+                        <div class="about-item__info">
+                            <h4>
+                                Постоянство <br>
+                                качества сырья
+                            </h4>
+                            <p>
+                                Никаких «плавающих» характеристик. Вы получаете одинаковую глину от партии к партии, с
+                                подтверждёнными показателями.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <img src="./images/about/4.svg" alt="иконка вопросы" class="about-item__icon">
+                        <div class="about-item__info">
+                            <h4>
+                                Быстрая реакция <br>
+                                на запросы
+                            </h4>
+                            <p>
+                                Нужен расчёт логистики? Паспорт качества? Дополнительный объём? — Решаем в течение 1
+                                рабочего дня.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <img src="./images/about/5.svg" alt="иконка рукопожатие" class="about-item__icon">
+                        <div class="about-item__info">
+                            <h4>
+                                Персональный подход <br>
+                                к каждому заказчику
+                            </h4>
+                            <p>
+                                Мы знаем, что у каждого клиента — своя технология, температура обжига, требования к
+                                глине. Подбираем марку под вас.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <img src="./images/about/6.svg" alt="иконка смайлик" class="about-item__icon">
+                        <div class="about-item__info">
+                            <h4>
+                                Открытость <br>
+                                и профессионализм
+                            </h4>
+                            <p>
+                                Покажем карьер, лабораторные отчёты. Работаем без скрытых условий с заботой о наших
+                                партнерах. Вам будет легко вести свой бизнес с нашей компанией.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section id="contact" class="section-contacts">
             <div class="container">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse harum at praesentium suscipit commodi
-                dicta quod, voluptate aliquam, nisi dolore, enim numquam exercitationem accusantium illum deserunt odit
-                omnis quas similique.
-                Ex libero aut exercitationem eaque velit vero in officia impedit voluptas hic, ratione ipsa sed, commodi
-                suscipit fugit, soluta rerum dignissimos ipsum voluptate tenetur a non autem repudiandae. Totam, ipsam!
-                Alias voluptate quae architecto velit libero voluptatum amet. Corporis nisi odit fugit maxime odio
-                repudiandae fuga provident minima facilis debitis quas unde incidunt, dignissimos esse minus! Distinctio
-                numquam cum officiis!
-                Quos ab, quaerat dicta esse dolores ipsum doloribus perspiciatis odio qui repellendus perferendis neque
-                nobis tempora hic. Aspernatur, architecto incidunt facere ratione asperiores accusamus tenetur omnis,
-                corrupti quidem voluptate dolorum!
-                Fugit repudiandae nemo illo, ab, eligendi iste culpa, laudantium soluta tempore voluptates obcaecati
-                labore quis quo velit repellat? Natus a reprehenderit maiores sed optio tenetur sit atque pariatur in
-                perspiciatis!
-                Nihil repellendus ipsa doloribus dolorem ducimus, porro fugit recusandae earum in molestias, cumque
-                nulla dolores impedit amet reprehenderit neque veritatis dolorum! Excepturi, numquam. Maxime natus dolor
-                iusto doloribus, laudantium consectetur.
-                Quia enim tempore nulla placeat sunt amet facilis labore molestiae dolores! Amet quam perferendis
-                corporis odit eaque ad sed est aperiam, expedita, quod facilis impedit ducimus non ipsam. Officia,
-                adipisci!
-                Voluptates odit illo rem harum eaque, sed fuga totam ipsam accusantium. Consequuntur, reiciendis minus
-                delectus magnam sequi error pariatur provident quas eos, beatae nesciunt deserunt sed incidunt, magni
-                tempora. Similique!
-                Repudiandae sit soluta molestiae itaque quos, cumque dolore blanditiis quia aliquam, aut animi qui vel
-                dolor eum veritatis, pariatur nemo ipsa! Odio praesentium dicta natus, eaque quis dignissimos quos
-                laborum.
-                Minus adipisci ipsum sit corporis ducimus nisi, vero, qui quod maiores autem consectetur modi iure
-                quibusdam rerum reprehenderit itaque deserunt explicabo odio. Placeat consequuntur inventore dignissimos
-                autem velit aut numquam!
+                <div class="contacts-container">
+                    <div class="contacts__info">
+                        <div class="section-title">
+                            <h2>
+                                Наши контакты
+                            </h2>
+                        </div>
+                        <div class="contacts__block">
+                            <a href="#" class="contacts-link contacts-link_location">
+                                <span>
+                                    344030, г. Ростов-на-Дону, ул. Горсоветская 57
+                                </span>
+                            </a>
+                            <a href="mailto:sale@sialgroup.ru" class="contacts-link contacts-link_mail">
+                                <span>
+                                    sale@sialgroup.ru
+                                </span>
+                            </a>
+                            <a href="tel:+78984321233" class="contacts-link contacts-link_tel">
+                                <span>
+                                    +7 (898) 432-12-33
+                                </span>
+                            </a>
+                            <button class="btn btn_second" data-modal-btn="form">Напишите нам</button>
+                        </div>
+                    </div>
+                    <div class="contact__map">
+                        <iframe
+                            src="https://yandex.ru/map-widget/v1/?ll=39.777733%2C47.240979&mode=whatshere&tab=inside&whatshere%5Bpoint%5D=39.777733%2C47.240979&whatshere%5Bzoom%5D=17&z=16"
+                            width="100%" height="100%" frameborder="0" allowfullscreen="true"
+                            style="position:relative;"></iframe>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+    <footer class="footer">
+        <div class="footer-container container">
+            <div class="footer__top">
+                <a href="#" class="logo"></a>
+                <nav class="nav">
+                    <a href="#products" class="nav-item">
+                    Продукция
+                </a>
+                <a href="#mine" class="nav-item">
+                    Месторождение
+                </a>
+                <a href="#lab" class="nav-item">
+                    Лаборатория
+                </a>
+                <a href="#about" class="nav-item">
+                    О нас
+                </a>
+                <a href="#contact" class="nav-item">
+                    Контакты
+                </a>
+                </nav>
+                <div class="footer__contact">
+                    <a href="tel:+78984321233" class="footer-link footer-link__tel">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_2114_656)">
+                                <path
+                                    d="M14.8468 1.17997L14.1001 0.526634C13.4201 -0.153366 12.2668 -0.186699 11.5334 0.559967L10.2868 2.1933C10.1204 2.3596 9.98833 2.55706 9.89826 2.7744C9.80819 2.99174 9.76182 3.2247 9.76182 3.45997C9.76182 3.69523 9.80819 3.92819 9.89826 4.14554C9.98833 4.36288 10.1204 4.56034 10.2868 4.72663L11.2801 5.74663C10.2001 8.27997 8.20677 10.28 5.75344 11.28L4.73344 10.2866C4.39344 9.94663 3.94677 9.75997 3.46677 9.75997C2.98677 9.75997 2.54011 9.94663 2.23344 10.26L0.540106 11.5666C-0.159894 12.2666 -0.159894 13.4066 0.526773 14.0866L1.20677 14.8666C1.94011 15.6 2.92677 16.0066 4.00011 16.0066C9.16677 16.0066 16.0134 9.1533 16.0134 3.9933C16.0134 2.92663 15.6068 1.9333 14.8601 1.18663L14.8468 1.17997ZM3.98677 15.3333C3.09344 15.3333 2.27344 15 1.68011 14.4066L1.00011 13.62C0.560106 13.18 0.560106 12.4666 0.966773 12.0533L2.66011 10.7466C2.87344 10.5333 3.15344 10.4133 3.46011 10.4133C3.76677 10.4133 4.04677 10.5333 4.26011 10.7466L5.44011 11.9C5.53344 11.9933 5.66677 12.02 5.79344 11.9733C8.57344 10.9133 10.8334 8.6533 11.9868 5.78663C12.0334 5.66663 12.0068 5.52663 11.9134 5.42663L10.7601 4.24663C10.3201 3.80663 10.3201 3.0933 10.7868 2.61997L12.0334 0.986634C12.4734 0.546634 13.1868 0.546634 13.6468 0.999967L14.3934 1.6533C15.0001 2.25997 15.3334 3.07997 15.3334 3.9733C15.3334 8.74663 8.76011 15.32 3.98677 15.32V15.3333Z"
+                                    fill="#8E8E8E" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_2114_656">
+                                    <rect width="16" height="16" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                        <span>
+                            +7 (898) 432-12-33
+                        </span>
+                    </a>
+                    <a href="mailto:sale@sialgroup.ru" class="footer-link footer-link__mail">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M13 1.3335H3C2.20462 1.33438 1.44207 1.65073 0.879654 2.21315C0.317236 2.77557 0.000882284 3.53812 0 4.3335L0 11.6668C0 13.3208 1.346 14.6668 3 14.6668H13C14.654 14.6668 16 13.3208 16 11.6668V4.3335C16 2.6795 14.654 1.3335 13 1.3335ZM3 2.00016H13C13.3432 2.00143 13.6818 2.0788 13.9914 2.22671C14.301 2.37461 14.574 2.58937 14.7907 2.8555L9.66333 7.9835C9.44444 8.20129 9.18473 8.37376 8.89908 8.49101C8.61343 8.60827 8.30745 8.66802 7.99867 8.66683C7.38933 8.6555 6.78133 8.42683 6.33733 7.9835L1.20933 2.8555C1.42594 2.58933 1.69892 2.37455 2.00857 2.22664C2.31822 2.07873 2.65684 2.00138 3 2.00016ZM15.3333 11.6668C15.3333 12.9535 14.2867 14.0002 13 14.0002H3C1.71333 14.0002 0.666667 12.9535 0.666667 11.6668V4.3335C0.666667 4.0155 0.731333 3.71283 0.847333 3.43616L5.866 8.45483C6.43333 9.02216 7.186 9.3335 7.984 9.3335C8.782 9.3335 9.56733 9.02216 10.1347 8.45483L15.1533 3.43616C15.2693 3.71283 15.334 4.0155 15.334 4.3335L15.3333 11.6668Z"
+                                fill="#8E8E8E" />
+                        </svg>
+
+                        <span>
+                            sale@sialgroup.ru
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="about-site">
+                    <div class="about-company">
+                        <span>
+                            © 2025 Все права защищены
+                        </span>
+                        <span>
+                            ИП «АТП «РТА»
+                        </span>
+                        <span>
+                            ИНН: 48392004832103
+                        </span>
+                        <span>
+                            ОГРНИП: 0929202018332
+                        </span>
+                    </div>
+                    <p>
+                        Продолжая использование сайта, вы соглашаетесь с условиями использования. В ином случае вам
+                        необходимо покинуть сайт. Сайт использует файлы cookies для взаимодействия с вами. Вы можете
+                        согласиться на использование cookies или заблокировать их использование, изменив настройки
+                        вашего интернет-браузера, следуя инструкции.
+                    </p>
+                </div>
+                <a href="#" class="about-develop">
+                    <span>
+                        Техподдержка и разработка сайта
+                    </span>
+                    <img src="./images/logo_dev.png" alt="разработка">
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js" id="jquery-js-js"></script>
+    <script src="./scripts/intlTelInput.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./scripts/main.js"></script>
 </body>
