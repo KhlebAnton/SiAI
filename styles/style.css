@@ -449,7 +449,42 @@ textarea:focus {
     font-size: 14px;
     font-weight: 500;
 }
+.bread-crumbs {
+    padding-top: 147px;
+     color:#ADAEB9;
+       display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
 
+.bread-crumbs a {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    text-wrap: nowrap;
+   
+  
+   
+   flex-shrink: 0;
+}
+.bread-crumbs a::after {
+    content: ' /';
+}
+.bread-crumbs a:last-child:after {
+    content: '';
+}
+.bread-crumbs a {
+   
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Commissioner';
+}
+.bread-crumbs a:last-child {
+    pointer-events: none;
+    color: var(--black);
+}
 section {
     padding: 110px 0;
 }
@@ -913,7 +948,24 @@ section {
     height: 33px;
     object-fit: contain;
 }
-
+.politick {
+    padding: 0;
+    padding-bottom: 110px;
+}
+.politick-container p {
+    margin: 10px 0;
+    font-weight: 500;
+}
+.politick-container h4 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.politick-container .politick_subtitle {
+    margin-bottom: 40px;
+    font-size: 18px;
+    color: var(--primary);
+    font-weight: 500;
+}
 @media (max-width:1250px) {
 
     .header__contact,
@@ -1019,6 +1071,10 @@ section {
     .modal-content {
         padding: 20px;
     }
+    .bread-crumbs {
+    padding-top: 80px; 
+}
+
 }
 
 @media (max-width:750px) {
@@ -1147,7 +1203,19 @@ section {
     .about-develop {
         gap: 10px;
     }
-    
+    .bread-crumbs a {
+  font-size: 12px;   
+}
+   .politick-container h1 {
+    font-size:28px;
+}
+.politick-container .politick_subtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.politick-container h4 {
+    margin-top: 20px;
+}
 }
 
 @media (max-width:550px) {
