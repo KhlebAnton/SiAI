@@ -616,6 +616,8 @@ section {
     height: 100%;
     object-fit: cover;
     border-radius: 4px;
+    min-height: 0;
+    min-width: 0;
 }
 
 .mine-stat-container {
