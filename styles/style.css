@@ -1150,7 +1150,10 @@ section {
     section {
         padding: 40px 0;
     }
-
+.section-hero {
+    
+    background: url('../images/hero_mob.png') 50% / cover no-repeat;
+}
     h1.hero-title {
         font-size: 28px;
         word-break: break-word;
