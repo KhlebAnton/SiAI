@@ -56,6 +56,7 @@ a {
 a:hover {
     color: var(--accent);
 }
+
 textarea,
 input,
 button {
@@ -71,6 +72,7 @@ input:focus,
 button:focus {
     outline: none;
 }
+
 h1,
 h2,
 h3,
@@ -108,10 +110,12 @@ h4 {
     font-size: 18px;
     line-height: 110%;
 }
+
 .form-title {
     font-size: 24px;
     padding-right: 30px;
 }
+
 .section-text {
     font-weight: 500;
     font-size: 24px;
@@ -268,10 +272,11 @@ h4 {
 .menu__contact .link_contacts a {
     font-size: 16px;
 }
+
 .modal-content {
     padding: 40px;
     border-radius: 4px;
-    background-color:var(--white) ;
+    background-color: var(--white);
     position: relative;
     margin: auto;
     max-width: 500px;
@@ -282,33 +287,41 @@ h4 {
     transform: translateY(20px);
     transition: transform .3s ease;
 }
+
 .modal_overlay.is-open .modal-content {
     transform: translateY(0);
 }
+
 .modal-content .modal-close {
     position: absolute;
     top: 20px;
     right: 20px;
 }
+
 .form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
+
 .success_form__content {
     display: none;
 }
-.form.success_form .success_form__content  {
+
+.form.success_form .success_form__content {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.form.success_form > * {
+
+.form.success_form>* {
     display: none;
 }
+
 .form .btn {
     width: 100%;
 }
+
 .form_bootom {
     display: flex;
     flex-direction: column;
@@ -318,9 +331,11 @@ h4 {
     color: #ADAEB9;
     margin-top: 11px;
 }
+
 .form_bootom a {
     text-decoration: underline;
 }
+
 textarea,
 input {
     height: 46px;
@@ -334,35 +349,64 @@ input {
     align-items: center;
     width: 100%;
 }
+
 .error_msg {
     color: var(--red);
     font-size: 14px;
     font-family: 'Commissioner';
     display: none;
 }
+
 .input_label.error input {
     border-color: var(--red);
     color: var(--red);
 }
+
 .input_label.error .error_msg {
     display: block;
 }
+
 input:focus {
     border-color: var(--accent);
 }
+
 .input_label {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
+
 textarea {
     resize: none;
     padding-bottom: 10px;
-    
+
 }
+
 textarea:focus {
     border-color: var(--accent);
 }
+
+.no-page {
+    width: 100%;
+    padding: 123px 0;
+    min-height: 100vh;
+    display: flex;
+    color: var(--white);
+    background: url('../images/404-bg.png') 50% 0% / cover no-repeat;
+}
+
+.no-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.no-page_info {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
 .container {
     max-width: calc(1180px + (30px * 2));
     padding: 0 30px;
@@ -449,10 +493,11 @@ textarea:focus {
     font-size: 14px;
     font-weight: 500;
 }
+
 .bread-crumbs {
     padding-top: 147px;
-     color:#ADAEB9;
-       display: flex;
+    color: #ADAEB9;
+    display: flex;
     align-items: center;
     gap: 2px;
     flex-wrap: wrap;
@@ -464,27 +509,32 @@ textarea:focus {
     align-items: center;
     gap: 2px;
     text-wrap: nowrap;
-   
-  
-   
-   flex-shrink: 0;
+
+
+
+    flex-shrink: 0;
 }
+
 .bread-crumbs a::after {
     content: ' /';
 }
+
 .bread-crumbs a:last-child:after {
     content: '';
 }
+
 .bread-crumbs a {
-   
+
     font-size: 16px;
     font-weight: 400;
     font-family: 'Commissioner';
 }
+
 .bread-crumbs a:last-child {
     pointer-events: none;
     color: var(--black);
 }
+
 section {
     padding: 110px 0;
 }
@@ -948,24 +998,29 @@ section {
     height: 33px;
     object-fit: contain;
 }
+
 .politick {
     padding: 0;
     padding-bottom: 110px;
 }
+
 .politick-container p {
     margin: 10px 0;
     font-weight: 500;
 }
+
 .politick-container h4 {
     margin-top: 40px;
     margin-bottom: 20px;
 }
+
 .politick-container .politick_subtitle {
     margin-bottom: 40px;
     font-size: 18px;
     color: var(--primary);
     font-weight: 500;
 }
+
 @media (max-width:1250px) {
 
     .header__contact,
@@ -1065,15 +1120,18 @@ section {
 
         height: 36px;
     }
+
     .footer {
         padding: 60px 0;
     }
+
     .modal-content {
         padding: 20px;
     }
+
     .bread-crumbs {
-    padding-top: 80px; 
-}
+        padding-top: 80px;
+    }
 
 }
 
@@ -1183,38 +1241,52 @@ section {
     .contact__map {
         height: 204px;
     }
+
     .footer__top .nav {
         flex-direction: column;
         align-items: start;
     }
+
     .footer__contact {
         margin-top: 20px;
     }
+
     .footer-link {
         font-size: 14px;
     }
+
     .footer__bottom {
         flex-direction: column;
         gap: 25px;
     }
+
     .footer__top {
         padding-bottom: 20px;
     }
+
     .about-develop {
         gap: 10px;
     }
+
     .bread-crumbs a {
-  font-size: 12px;   
-}
-   .politick-container h1 {
-    font-size:28px;
-}
-.politick-container .politick_subtitle {
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-.politick-container h4 {
-    margin-top: 20px;
+        font-size: 12px;
+    }
+
+    .politick-container h1 {
+        font-size: 28px;
+    }
+
+    .politick-container .politick_subtitle {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .politick-container h4 {
+        margin-top: 20px;
+    }
+    .no-page {
+   
+    background: url('../images/404-bg_mob.png') 50% 0% / cover no-repeat;
 }
 }
 
@@ -1226,7 +1298,8 @@ section {
     .about-items-container {
         grid-template-columns: 1fr;
     }
-     .about-company {
+
+    .about-company {
         flex-direction: column;
         align-items: start;
     }
@@ -1236,5 +1309,5 @@ section {
     .mine-stat-item__count {
         font-size: 34px;
     }
-   
+
 }
