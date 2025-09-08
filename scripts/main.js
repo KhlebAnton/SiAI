@@ -29,10 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
             if (e.target === modal) {
                 closeModal(modal);
             }
-            if (modal.getAttribute('data-modal') === 'menu') {
-                closeModal(modal);
-            }
+
         });
+        if (modal.getAttribute('data-modal') === 'menu') {
+            modal.querySelectorAll('.menu-nav-item').forEach(link => {
+                link.addEventListener('click', () => {
+                    closeModal(modal);
+                })
+            })
+
+        }
 
     });
 
@@ -42,9 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (modal.getAttribute('data-modal') === id) {
                 modal.classList.add('is-open');
                 setTimeout(() => {
-                     document.body.style.overflow = 'hidden';
+                    document.body.style.overflow = 'hidden';
                 }, 100);
-               
+
             }
         });
     }
@@ -253,9 +259,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!errorMsg) {
             const errSpan = document.createElement('span');
             errSpan.classList.add('error_msg');
-                 errSpan.textContent = message;
-        
-           
+            errSpan.textContent = message;
+
+
             label.appendChild(errSpan)
         } else {
             errorMsg.textContent = message;
